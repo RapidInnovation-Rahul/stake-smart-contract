@@ -1,7 +1,7 @@
 library error;
 
-pub enum Error{
-    InvalidAmount,
-    InsufficientBalance,
-    
+pub enum Errors {
+    InvalidAmount: (),
+    InsufficientBalance: (),
+    TimeLimitExceeded: (),
 }
