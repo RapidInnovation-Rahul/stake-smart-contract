@@ -12,11 +12,12 @@ storage{
     interestRate :u8 = 10,
     planExpired :u8 = 90,
 
-    stakingBalance : StorageMap<Address, u64> = StorageMap{};
-    hasStaked : StorageMap<Address, bool> = StorageMap{};
-    hasWithdrawn : StorageMap<Address, bool> = StorageMap{};
+    stakingBalance : StorageMap<Address, u64> = StorageMap{},
+    hasStaked : StorageMap<Address, bool> = StorageMap{},
+    hasWithdrawn : StorageMap<Address, bool> = StorageMap{},
+    stakeInfos : storageM<Stakeinfo> = StorageMap{},
 }
-struct Stakeinfo{
+struct StakeInfo{
         starTs : u128,
         endTs : u128,
         amount : u128,
@@ -38,7 +39,14 @@ impl stakeAbi for Contract {
         // transfer_from()
     }
     #[storage(read, write)]
-    fn withdraw(address : Address) {
+    fn withdraw(address : Address) -> bool {
+        // the msg_sender should participated
+
+        // msg_sender should not claimed_reward already
+
+        // token should not exceed time limit
+        
+        // if stake time not met return zero
 
     }
 }
