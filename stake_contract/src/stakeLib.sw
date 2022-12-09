@@ -9,4 +9,8 @@ abi StakeAbi {
     // this fn is to calculate the interest
     #[storage(read, write)]
     fn withdraw() -> bool;
+
+    //this fn is to unstake the token amount
+    #[storage(read, write)]
+    fn unstake() -> bool;
 }
